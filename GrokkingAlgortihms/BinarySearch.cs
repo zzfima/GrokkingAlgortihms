@@ -24,8 +24,6 @@
                         break;
                     high = middle;
                 }
-
-
             }
 
             return -1;
