@@ -7,22 +7,18 @@
             int low = 0;
             int high = arr.Length - 1;
 
-            while (true)
+            while (low <= high)
             {
                 int middle = (high - low) / 2 + low;
                 if (arr[middle] == v)
-                    return middle;
+                    return middle + 1;
                 else if (arr[middle] < v)
                 {
-                    if (low == middle || high == middle)
-                        break;
-                    low = middle;
+                    low = middle + 1;
                 }
                 else
                 {
-                    if (low == middle || high == middle)
-                        break;
-                    high = middle;
+                    high = middle - 1;
                 }
             }
 
