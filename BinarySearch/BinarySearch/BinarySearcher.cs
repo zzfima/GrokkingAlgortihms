@@ -1,6 +1,4 @@
-﻿using System.Runtime.Remoting.Messaging;
-
-namespace BinarySearch
+﻿namespace BinarySearch
 {
     public static class BinarySearcher
     {
