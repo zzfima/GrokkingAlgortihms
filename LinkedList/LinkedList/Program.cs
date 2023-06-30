@@ -6,15 +6,15 @@ ll.AddLast(66);
 ll.AddLast(77);
 ll.AddLast(88);
 ll.AddLast(99);
-ll.PrintAll();
+ll.PrintAll((i) => Console.WriteLine(i));
 Console.WriteLine("************");
 
 ll.RemoveHead();
-ll.PrintAll();
+ll.PrintAll((i) => Console.WriteLine(i));
 Console.WriteLine("************");
 
 ll.Remove(77);
-ll.PrintAll();
+ll.PrintAll((i) => Console.WriteLine(i));
 Console.WriteLine("************");
 
 foreach (int i in ll)
@@ -70,16 +70,15 @@ public class NodeList<T> : IEnumerable
 		}
 	}
 
-	public void PrintAll()
+	public void PrintAll(Action<T> action)
 	{
 		var tmp = _head;
 
-		while (tmp.Next != null)
+		while (tmp != null)
 		{
-			Console.WriteLine(tmp.Data);
+			action(tmp.Data);
 			tmp = tmp.Next;
 		}
-		Console.WriteLine(tmp.Data);
 	}
 
 	public void Remove(T v)
