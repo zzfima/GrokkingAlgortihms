@@ -1,4 +1,6 @@
-﻿var ll = new LinkedList<int>();
+﻿using System.Collections;
+
+var ll = new LinkedList<int>();
 ll.Add(55);
 ll.Add(66);
 ll.Add(77);
@@ -15,6 +17,9 @@ ll.Remove(77);
 ll.PrintAll();
 Console.WriteLine("************");
 
+foreach (int i in ll)
+	Console.WriteLine(i);
+
 Console.Read();
 
 
@@ -24,7 +29,7 @@ public class Node<T>
 	public Node<T> Next { get; set; }
 }
 
-public class LinkedList<T>
+public class LinkedList<T> : IEnumerable
 {
 	Node<T>? _head = null;
 	Node<T>? _tail = null;
@@ -53,6 +58,16 @@ public class LinkedList<T>
 			_tail = newNode;
 		}
 
+	}
+
+	public IEnumerator GetEnumerator()
+	{
+		var tmp = _head;
+		while (tmp != null)
+		{
+			yield return tmp.Data;
+			tmp = tmp.Next;
+		}
 	}
 
 	public void PrintAll()
