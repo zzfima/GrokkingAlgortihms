@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 
-var ll = new LinkedList<int>();
-ll.Add(55);
-ll.Add(66);
-ll.Add(77);
-ll.Add(88);
-ll.Add(99);
+var ll = new NodeList<int>();
+ll.AddLast(55);
+ll.AddLast(66);
+ll.AddLast(77);
+ll.AddLast(88);
+ll.AddLast(99);
 ll.PrintAll();
 Console.WriteLine("************");
 
@@ -29,18 +29,18 @@ public class Node<T>
 	public Node<T> Next { get; set; }
 }
 
-public class LinkedList<T> : IEnumerable
+public class NodeList<T> : IEnumerable
 {
 	Node<T>? _head = null;
 	Node<T>? _tail = null;
 
-	public LinkedList()
+	public NodeList()
 	{
 		_head = null;
 		_tail = null;
 	}
 
-	public void Add(T value)
+	public void AddLast(T value)
 	{
 		if (_head == null)
 		{
