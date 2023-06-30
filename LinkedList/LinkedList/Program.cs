@@ -3,7 +3,9 @@ ll.Add(55);
 ll.Add(66);
 ll.Add(77);
 ll.Add(88);
+ll.PrintAll();
 
+ll.RemoveHead();
 ll.PrintAll();
 
 Console.Read();
@@ -56,5 +58,10 @@ public class LinkedList
 			tmp = tmp.Next;
 		}
 		Console.WriteLine(tmp.Data);
+	}
+
+	internal void RemoveHead()
+	{
+		_head = _head.Next;
 	}
 }
