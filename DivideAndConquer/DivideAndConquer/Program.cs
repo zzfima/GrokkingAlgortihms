@@ -4,6 +4,10 @@ Console.WriteLine(minSquareFinder.Find(1680, 640));
 var sumArray = new SumArray();
 Console.WriteLine(sumArray.Sum(new List<int> { 1, 1, 5, 3 }));
 
+var calcArrayLength = new CalcArrayLength();
+Console.WriteLine(calcArrayLength.Calc(new List<int> { 1, 1, 5, 3, 6, 7, 8, 98 }));
+
+
 Console.ReadLine();
 
 public class MinimumSquareFinder
@@ -36,5 +40,17 @@ public class SumArray
 		var a = array[0];
 		array.RemoveAt(0);
 		return a + Sum(array);
+	}
+}
+
+public class CalcArrayLength
+{
+	public int Calc(List<int> array)
+	{
+		if (array.Count == 1)
+			return 1;
+
+		array.RemoveAt(0);
+		return 1 + Calc(array);
 	}
 }
