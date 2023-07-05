@@ -7,6 +7,12 @@ phoneBook.AddNumber("tata", "3-333-444-555");
 phoneBook.AddNumber("zaza", "4-66-444-555");
 phoneBook.AddNumber("haha", "5-333-444-555");
 phoneBook.AddNumber("gaga", "6-66-444-555");
+phoneBook.AddNumber("mama1", "11-333-444-555");
+phoneBook.AddNumber("luna1", "12-66-444-555");
+phoneBook.AddNumber("tata1", "13-333-444-555");
+phoneBook.AddNumber("zaza1", "14-66-444-555");
+phoneBook.AddNumber("haha1", "15-333-444-555");
+phoneBook.AddNumber("gaga1", "16-66-444-555");
 
 Console.WriteLine(phoneBook.GetNumber("mama"));
 Console.WriteLine(phoneBook.GetNumber("luna"));
@@ -14,6 +20,12 @@ Console.WriteLine(phoneBook.GetNumber("tata"));
 Console.WriteLine(phoneBook.GetNumber("zaza"));
 Console.WriteLine(phoneBook.GetNumber("haha"));
 Console.WriteLine(phoneBook.GetNumber("gaga"));
+Console.WriteLine(phoneBook.GetNumber("mama1"));
+Console.WriteLine(phoneBook.GetNumber("luna1"));
+Console.WriteLine(phoneBook.GetNumber("tata1"));
+Console.WriteLine(phoneBook.GetNumber("zaza1"));
+Console.WriteLine(phoneBook.GetNumber("haha1"));
+Console.WriteLine(phoneBook.GetNumber("gaga1"));
 
 Console.ReadLine();
 
@@ -30,13 +42,13 @@ public class PhoneBook
 	public string GetNumber(string name)
 	{
 		var index = (name.GetHashCode() & 0x7FFFFFFF) % _numbers.Length;
-		return _numbers[index].Key;
+		return _numbers[index].Key + " " + _numbers[index].Value;
 	}
 
 	public void AddNumber(string name, string number)
 	{
 		var index = GetIndex(name);
-		if (_numbers[index].Key != null)
+		while (_numbers[index].Key != null)
 		{
 			Resize();
 			index = (name.GetHashCode() & 0x7FFFFFFF) % _numbers.Length;
