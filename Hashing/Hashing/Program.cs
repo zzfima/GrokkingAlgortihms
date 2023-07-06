@@ -1,4 +1,14 @@
-﻿using System.Xml.Linq;
+﻿
+using System.Security.Cryptography;
+using System.Text;
+
+Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
+keyValuePairs.Add("efes", 0);
+keyValuePairs.Add("sheva", 7);
+
+SHA1 sha1 =  SHA1.Create();
+var hash1 = sha1.ComputeHash(Encoding.ASCII.GetBytes("sheva"));
+var hash2 = sha1.ComputeHash(Encoding.ASCII.GetBytes("sheva"));
 
 var phoneBook = new PhoneBook();
 phoneBook.AddNumber("mama", "1-333-444-555");
