@@ -5,6 +5,7 @@ var tom = new Seller("tom");
 
 var bob = new Seller("bob");
 bob.Friends.Add(anudj);
+bob.Friends.Add(peggi);
 
 var alisa = new Seller("alisa");
 alisa.Friends.Add(peggi);
