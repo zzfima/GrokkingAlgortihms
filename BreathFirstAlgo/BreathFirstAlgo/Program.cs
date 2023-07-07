@@ -1,4 +1,4 @@
-﻿var anudj = new Seller("anudj") { IsSellMango = true };
+﻿var anudj = new Seller("anudj"); //{ IsSellMango = true }
 var peggi = new Seller("peggi");
 var jonni = new Seller("jonni");
 var tom = new Seller("tom");
@@ -23,6 +23,7 @@ var bfs = new BFS();
 Seller? seller = bfs.FindWhoSellMango(me);
 if (seller != null)
 	Console.WriteLine(seller.Name);
+else Console.WriteLine("nobody sell mango");
 
 Console.ReadLine();
 
