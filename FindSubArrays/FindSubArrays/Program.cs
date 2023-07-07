@@ -1,4 +1,4 @@
-﻿var arr = new int[3000];
+﻿var arr = new int[2000];
 Random random = new Random();
 
 for (int i = 0; i < arr.Length; i++)
