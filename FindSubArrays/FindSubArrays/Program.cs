@@ -38,25 +38,25 @@ public class SubArrayFinderWithHash
 		Dictionary<int, int> hash = new Dictionary<int, int>();
 		hash.Add(0, 1);
 
-		var subArrays = 0;
-		var prevSum = 0;
+		var result = 0;
+		var subArraySum = 0;
 
 		for (int i = 0; i < arr.Length; i++)
 		{
-			prevSum += arr[i];
-			if (!hash.ContainsKey(prevSum))
-				hash.Add(prevSum, 0);
+			subArraySum += arr[i];
 
-			hash[prevSum]++;
+			if (!hash.ContainsKey(subArraySum))
+				hash.Add(subArraySum, 0);
+			hash[subArraySum]++;
 
-			if (hash.ContainsKey(prevSum - k))
-				subArrays += hash[prevSum - k];
+			if (hash.ContainsKey(subArraySum - k))
+				result += hash[subArraySum - k];
 		}
 
 		DateTime stop = DateTime.Now;
 		Console.WriteLine((stop - start).TotalMilliseconds);
 
-		return subArrays;
+		return result;
 	}
 
 	private int Sum(int[] arr, int i, int j)
