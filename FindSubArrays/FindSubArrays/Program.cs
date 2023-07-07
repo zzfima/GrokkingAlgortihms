@@ -1,13 +1,5 @@
-﻿//var arr = new int[] { 7, 2, -5, 1, 1, -1, 5, -5 };
+﻿var arr = new int[] { 7, 2, -5, 1, 1, -1, 5, -5 };
 var k = 5;
-
-
-var arr = new int[6000];
-Random random = new Random();
-for (int i = 0; i < arr.Length; i++)
-{
-	arr[i] = random.Next(-10, 10);
-}
 
 Console.WriteLine($"SubArrayFinderSimple");
 var subArrayFinderSimple = new SubArrayFinderSimple();
