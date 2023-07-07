@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-var anudj = new Seller("anudj"); //{ IsSellMango = true }
+﻿var anudj = new Seller("anudj"); //{ IsSellMango = true }
 var peggi = new Seller("peggi");
 var jonni = new Seller("jonni");
 var tom = new Seller("tom");
