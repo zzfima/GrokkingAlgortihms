@@ -39,7 +39,7 @@ public class SubArrayFinder
 		}
 
 		DateTime stop = DateTime.Now;
-		Console.WriteLine((stop - start).TotalSeconds);
+		Console.WriteLine((stop - start).TotalMilliseconds);
 
 		return ranges;
 	}
@@ -70,7 +70,7 @@ public class SubArrayFinderSimple
 			}
 
 		DateTime stop = DateTime.Now;
-		Console.WriteLine((stop - start).TotalSeconds);
+		Console.WriteLine((stop - start).TotalMilliseconds);
 
 		return ranges;
 	}
