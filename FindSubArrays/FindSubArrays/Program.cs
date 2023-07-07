@@ -1,4 +1,9 @@
-﻿var arr = new int[] { 7, 2, -5, 1, 1, -1, 5, -5 };
+﻿var arr = new int[3000];
+Random random = new Random();
+
+for (int i = 0; i < arr.Length; i++)
+	arr[i] = random.Next(-10, 10);
+
 var k = 5;
 
 Console.WriteLine($"SubArrayFinderSimple");
@@ -15,7 +20,53 @@ appropriateArrays = subArrayFinder.Find(arr, k);
 //	Console.WriteLine($"Lower: {range.Lower}, Upper: {range.Upper}");
 Console.WriteLine($"results amount = {appropriateArrays.Count}");
 
+Console.WriteLine($"SubArrayFinderWithHash");
+var subArrayFinderWithHash = new SubArrayFinderWithHash();
+var cnt = subArrayFinderWithHash.Find(arr, k);
+//foreach (var range in appropriateArrays)
+//	Console.WriteLine($"Lower: {range.Lower}, Upper: {range.Upper}");
+Console.WriteLine($"results amount = {cnt}");
+
+
 Console.ReadLine();
+
+public class SubArrayFinderWithHash
+{
+	public int Find(int[] arr, int k)
+	{
+		DateTime start = DateTime.Now;
+		Dictionary<int, int> hash = new Dictionary<int, int>();
+		hash.Add(0, 1);
+
+		var subArrays = 0;
+		var prevSum = 0;
+
+		for (int i = 0; i < arr.Length; i++)
+		{
+			prevSum += arr[i];
+			if (!hash.ContainsKey(prevSum))
+				hash.Add(prevSum, 0);
+
+			hash[prevSum]++;
+
+			if (hash.ContainsKey(prevSum - k))
+				subArrays += hash[prevSum - k];
+		}
+
+		DateTime stop = DateTime.Now;
+		Console.WriteLine((stop - start).TotalMilliseconds);
+
+		return subArrays;
+	}
+
+	private int Sum(int[] arr, int i, int j)
+	{
+		int sum = 0;
+		for (; i <= j; i++)
+			sum += arr[i];
+		return sum;
+	}
+}
 
 public class SubArrayFinder
 {
