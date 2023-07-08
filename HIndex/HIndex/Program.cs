@@ -35,7 +35,7 @@ public class HIndexFinder
 		return -1;
 	}
 
-	//Complexity O(n*log(n) + n)
+	//Complexity O(n*log(n) + n) = O(n*log(n))
 	internal int FindHVer2(int[] publications)
 	{
 		Array.Sort(publications);
